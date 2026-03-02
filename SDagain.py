@@ -1,4 +1,4 @@
-import pyautogui, tkinter, webcolors, math, keyboard
+import pyautogui, tkinter, webcolors, math, keyboard, os
 
 """
 Checklist:
@@ -21,6 +21,13 @@ preview = tkinter.Checkbutton(Display, variable=PreviewVar, text="Color Preview"
 preview.pack()
 Text = tkinter.Label(Display, text="Press Escape + Tab to toggle overlay.", font=("Lexend", 10), bg="#10141C", fg="white")
 Text.pack()
+
+
+filepth = os.path.join(os.path.abspath(__file__)) # stuff i added
+filedir = os.path.dirname(filepth)
+imagepth= os.path.join(filedir, "swicon.png")
+icon = tkinter.PhotoImage(file=imagepth)
+Display.iconphoto(True, icon)
 
 OL = tkinter.Toplevel(Display)
 OL.overrideredirect(True)
